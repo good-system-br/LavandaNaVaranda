@@ -36,6 +36,7 @@
             },
         }
     </script>
+    <link rel="stylesheet" href="css/experiencia-4.css">
     <style>
         .material-symbols-outlined {
             font-variation-settings:
@@ -45,14 +46,39 @@
                 'opsz' 24
         }
     </style>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
-        }
-    </style>
+    <!-- Removido CSS inline, agora em css/experiencia-4.css -->
 </head>
 
 <body class="font-display">
+    <!-- Menu Responsivo -->
+    <nav class="w-full bg-primary text-white py-3 px-4 flex items-center justify-between mb-4">
+        <div class="font-black text-lg tracking-wide">Lavanda nas Varandas</div>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-6 font-bold text-base">
+            <a href="index-1.html" class="hover:underline">Início</a>
+            <a href="sobre-2.html" class="hover:underline">Sobre</a>
+            <a href="service-3.html" class="hover:underline">Serviços</a>
+            <a href="experiencia-4.html" class="hover:underline">Experiência</a>
+            <a href="depoimentos-5.html" class="hover:underline">Depoimentos</a>
+        </div>
+        <!-- Mobile Hamburger -->
+        <div class="md:hidden">
+            <button id="menuBtn" aria-label="Abrir menu" class="focus:outline-none">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+        <div id="mobileMenu" class="fixed top-0 left-0 w-full h-full bg-primary/95 text-white flex flex-col items-center justify-center gap-8 font-bold text-xl z-50 hidden">
+            <button id="closeMenuBtn" aria-label="Fechar menu" class="absolute top-6 right-6">
+                <span class="material-symbols-outlined text-4xl">close</span>
+            </button>
+            <a href="index-1.html" class="hover:underline" onclick="closeMenu()">Início</a>
+            <a href="sobre-2.html" class="hover:underline" onclick="closeMenu()">Sobre</a>
+            <a href="service-3.html" class="hover:underline" onclick="closeMenu()">Serviços</a>
+            <a href="experiencia-4.html" class="hover:underline" onclick="closeMenu()">Experiência</a>
+            <a href="depoimentos-5.html" class="hover:underline" onclick="closeMenu()">Depoimentos</a>
+        </div>
+    </nav>
+    <script src="js/experiencia-4.js"></script>
     <div
         class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
         <!-- TopAppBar -->
