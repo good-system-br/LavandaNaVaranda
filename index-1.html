@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Página Inicial - Lavanda nas Varandas</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c30e8",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#1a1121",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="@container">
+            <div class="p-0">
+                <div class="flex min-h-screen flex-col gap-6 bg-cover bg-center bg-no-repeat items-center justify-center p-6 text-center"
+                    data-alt="A serene massage room with large windows showing a lush green mountain view in Monte Verde"
+                    style='background-image: linear-gradient(rgba(26, 17, 33, 0.2) 0%, rgba(26, 17, 33, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCz4H-UVp4yyfdbLYbhL-m2t1nzH8yms3JGkfWvNKSsxyx1djd2PWxTm1_MNliPBzxgUzjZPJqXcHS7ldfgxnsXzzIKmvrNnIdnFv-ECHwoKGHyORH9g_afQ8vAvjomKgu8PUplW9abUnGxb9R24gN8r3_rf55MTTGjh1d5IBEB3o_u6Cyx58btWEhixqKvzMgs1qxjfj3fp17DanDrGm_hjQBLnAv4BNt2lw6brjMBWatccyDp5GfqQewSbcwC-voswnRhuJx2vSYF");'>
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-5xl">
+                            Lavanda nas Varandas – Bem-estar entre as Montanhas
+                        </h1>
+                        <h2 class="text-gray-200 text-base font-normal leading-normal md:text-lg">
+                            Massagens terapêuticas e relaxantes em meio à natureza de Monte Verde
+                        </h2>
+                    </div>
+                    <button
+                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+                        <span class="truncate">Agendar Massagem</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
