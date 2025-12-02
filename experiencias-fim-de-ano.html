@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiências Essenciais de Fim de Ano - Lavandas na Varanda</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#9c30e8', 'background-light': '#f7f6f8', 'background-dark': '#1a1121' }, fontFamily: { display: ['Plus Jakarta Sans', 'sans-serif'] } } }
+    }
+  </script>
+  <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+  <!-- Menu -->
+  <nav class="w-full bg-primary text-white py-3 px-4 flex items-center justify-between">
+    <div class="font-black text-lg tracking-wide">Lavanda nas Varandas</div>
+    <div class="hidden md:flex gap-6 font-bold text-base">
+      <a href="index.html" class="hover:underline">Início</a>
+      <a href="sobre-2.html" class="hover:underline">Sobre</a>
+      <a href="service-3.html" class="hover:underline">Serviços</a>
+      <a href="experiencia-4.html" class="hover:underline">Experiência</a>
+      <a href="depoimentos-5.html" class="hover:underline">Depoimentos</a>
+    </div>
+    <div class="md:hidden"><button id="menuBtn" aria-label="Abrir menu" class="focus:outline-none"><span class="material-symbols-outlined text-3xl">menu</span></button></div>
+    <div id="mobileMenu" class="fixed top-0 left-0 w-full h-full bg-primary/95 text-white flex flex-col items-center justify-center gap-8 font-bold text-xl z-50 hidden">
+      <button id="closeMenuBtn" aria-label="Fechar menu" class="absolute top-6 right-6"><span class="material-symbols-outlined text-4xl">close</span></button>
+      <a href="index.html" onclick="closeMenu()">Início</a>
+      <a href="sobre-2.html" onclick="closeMenu()">Sobre</a>
+      <a href="service-3.html" onclick="closeMenu()">Serviços</a>
+      <a href="experiencia-4.html" onclick="closeMenu()">Experiência</a>
+      <a href="depoimentos-5.html" onclick="closeMenu()">Depoimentos</a>
+    </div>
+  </nav>
+  <script>
+    const menuBtn=document.getElementById('menuBtn');
+    const mobileMenu=document.getElementById('mobileMenu');
+    const closeMenuBtn=document.getElementById('closeMenuBtn');
+    function closeMenu(){mobileMenu.classList.add('hidden')}
+    if(menuBtn&&mobileMenu&&closeMenuBtn){menuBtn.onclick=()=>mobileMenu.classList.remove('hidden');closeMenuBtn.onclick=()=>mobileMenu.classList.add('hidden');}
+  </script>
+
+  <section class="px-4 py-8 max-w-5xl mx-auto">
+    <h1 class="text-[#151118] dark:text-white text-3xl md:text-4xl font-extrabold tracking-tight mb-2">Experiências Essenciais de Fim de Ano</h1>
+    <p class="text-[#151118]/80 dark:text-gray-300">Um Encontro de Bem-Estar e conexão com a Natureza para renovar as energias e vivenciar momentos especialmente preparados para seus novos sonhos.</p>
+
+    <!-- Intro About -->
+    <div class="mt-6 grid md:grid-cols-2 gap-6">
+      <div class="bg-white dark:bg-background-dark/50 rounded-xl p-5 shadow-sm">
+        <h2 class="font-bold text-xl mb-2">Atendimento Personalizado</h2>
+        <p class="text-sm text-[#151118]/80 dark:text-gray-300">Acolhemos suas sensações e pontos de tensão para preparar uma <strong>Sinergia Personalizada</strong> de óleos essenciais e indicar a terapia ideal para seu momento presente. Inclui <strong>chá de boas-vindas</strong>.</p>
+        <p class="mt-2 text-sm text-[#151118]/80 dark:text-gray-300">Agendamento prévio pelo direct ou WhatsApp.</p>
+        <a href="https://wa.me/5535998809418?text=Olá! Gostaria de agendar uma experiência." target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-full bg-primary text-white font-bold">Agendar pelo WhatsApp<span class="material-symbols-outlined">call</span></a>
+      </div>
+      <div class="bg-white dark:bg-background-dark/50 rounded-xl p-5 shadow-sm">
+        <h2 class="font-bold text-xl mb-2">Profissional Responsável</h2>
+        <p class="text-sm text-[#151118]/80 dark:text-gray-300"><strong>Adélia Carvalho</strong> — Terapeuta Holística.</p>
+        <p class="text-sm text-[#151118]/80 dark:text-gray-300">Experiência de Bem-Estar inclui chá de boas-vindas, conversa acolhedora, sinergia personalizada de óleos essenciais e a massagem escolhida para melhor atender suas buscas internas.</p>
+        <p class="mt-2 text-sm text-[#151118]/80 dark:text-gray-300">Valores: <strong>Individual R$ 280</strong> | <strong>Casal R$ 560</strong></p>
+      </div>
+    </div>
+
+    <!-- Packages Grid -->
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <div class="bg-white dark:bg-background-dark/50 rounded-xl p-5 shadow-sm">
+        <h3 class="font-bold text-lg">Equilíbrio Energético</h3>
+        <ul class="mt-2 text-sm text-[#151118]/80 dark:text-gray-300 list-disc pl-5">
+          <li>Massagem Terapêutica nas costas, pernas e pés</li>
+          <li>Massagem Crânio Facial</li>
+          <li>Alinhamento Energético com cristais</li>
+        </ul>
+        <p class="mt-2 text-sm">Duração: 1h30min — <strong>R$ 280 Individual</strong> | <strong>R$ 560 Casal</strong></p>
+      </div>
+      <div class="bg-white dark:bg-background-dark/50 rounded-xl p-5 shadow-sm">
+        <h3 class="font-bold text-lg">Calma & Clareza</h3>
+        <ul class="mt-2 text-sm text-[#151118]/80 dark:text-gray-300 list-disc pl-5">
+          <li>Escalda pés Aromático</li>
+          <li>Massagem Relaxante</li>
+          <li>Sinergia de óleos essenciais Paz Interior</li>
+        </ul>
+        <p class="mt-2 text-sm">Duração: 2h — <strong>R$ 320 Individual</strong> | <strong>R$ 640 Casal</strong></p>
+      </div>
+      <div class="bg-white dark:bg-background-dark/50 rounded-xl p-5 shadow-sm">
+        <h3 class="font-bold text-lg">Novos Caminhos</h3>
+        <ul class="mt-2 text-sm text-[#151118]/80 dark:text-gray-300 list-disc pl-5">
+          <li>Reflexologia podal</li>
+          <li>Massagem Terapêutica ou Drenagem Linfática</li>
+          <li>Sinergia de óleos essenciais Realizar</li>
+        </ul>
+        <p class="mt-2 text-sm">Duração: 2h — <strong>R$ 320 Individual</strong> | <strong>R$ 640 Casal</strong></p>
+      </div>
+      <div class="bg-white dark:bg-background-dark/50 rounded-xl p-5 shadow-sm">
+        <h3 class="font-bold text-lg">Serenidade</h3>
+        <ul class="mt-2 text-sm text-[#151118]/80 dark:text-gray-300 list-disc pl-5">
+          <li>Chá de maracujá</li>
+          <li>Massagem Relaxante com Pedras Quentes nas costas</li>
+          <li>Sinergia de óleos essenciais Paz Interior</li>
+        </ul>
+        <p class="mt-2 text-sm">Duração: 2h — <strong>R$ 350 Individual</strong> | <strong>R$ 700 Casal</strong></p>
+      </div>
+      <div class="bg-white dark:bg-background-dark/50 rounded-xl p-5 shadow-sm">
+        <h3 class="font-bold text-lg">Magia da Paixão</h3>
+        <ul class="mt-2 text-sm text-[#151118]/80 dark:text-gray-300 list-disc pl-5">
+          <li>Massagem Relaxante com creme de chocolate</li>
+          <li>Massagem Facial com toque de lavanda e óleos essenciais de lavanda e gerânio</li>
+        </ul>
+        <p class="mt-2 text-sm">Duração: 1h30min — <strong>R$ 320 Individual</strong> | <strong>R$ 640 Casal</strong></p>
+      </div>
+      <div class="bg-white dark:bg-background-dark/50 rounded-xl p-5 shadow-sm">
+        <h3 class="font-bold text-lg">Leveza de Ser</h3>
+        <ul class="mt-2 text-sm text-[#151118]/80 dark:text-gray-300 list-disc pl-5">
+          <li>Alinhamento Energético com cristais</li>
+          <li>Massagem nas extremidades: Crânio Facial, mãos e pés</li>
+        </ul>
+        <p class="mt-2 text-sm">Duração: 1h30min — <strong>R$ 280 Individual</strong> | <strong>R$ 560 Casal</strong></p>
+      </div>
+    </div>
+
+    <!-- List of Available Massages -->
+    <div class="mt-10 bg-white dark:bg-background-dark/50 rounded-xl p-5 shadow-sm">
+      <h2 class="font-bold text-xl">Massagens Disponíveis</h2>
+      <p class="text-sm text-[#151118]/80 dark:text-gray-300 mt-2">Relaxante, Terapêutica, Drenagem Linfática, Ayurvédica, Pedras Quentes, Chocolamour, Reflexologia Podal, Crânio Facial, Reiki, Alinhamento Energético.</p>
+      <a href="https://wa.me/5535998809418?text=Olá! Gostaria de agendar uma experiência." target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-full bg-primary text-white font-bold">Agendar pelo WhatsApp<span class="material-symbols-outlined">call</span></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full bg-primary text-white py-4 px-6 flex flex-col items-center gap-2 mt-8">
+    <div class="font-bold text-lg">Agende sua massagem:</div>
+    <a href="https://wa.me/5535998809418?text=Olá! Gostaria de agendar uma massagem." target="_blank" rel="noopener" class="flex items-center gap-2 font-bold text-base hover:underline" aria-label="WhatsApp Lavanda nas Varandas">
+      <span class="material-symbols-outlined text-2xl" aria-hidden="true">call</span>
+      (35) 99880-9418
+    </a>
+    <div class="text-xs mt-2">&copy; 2025 Lavanda nas Varandas. Todos os direitos reservados.</div>
+  </footer>
+</body>
+</html>
