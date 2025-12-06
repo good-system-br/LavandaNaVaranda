@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Galeria - Lavanda na Varanda</title>
+    <meta name="description" content="Conheça nosso ambiente e veja os momentos especiais de nossos clientes no Spa Lavanda na Varanda." />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/galeria.css">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c30e8",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#1a1121",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+    <!-- Menu Responsivo -->
+    <nav class="w-full bg-primary text-white py-3 px-4 flex items-center justify-between mb-4">
+        <div class="font-black text-lg tracking-wide">Lavanda na Varanda</div>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-6 font-bold text-base">
+            <a href="index.html" class="hover:underline">Início</a>
+            <a href="sobre-2.html" class="hover:underline">Sobre</a>
+            <a href="service-3.html" class="hover:underline">Serviços</a>
+            <a href="experiencia-4.html" class="hover:underline">Experiência</a>
+            <a href="experiencias-fim-de-ano.html" class="hover:underline">Experiências Fim de Ano</a>
+            <a href="galeria.html" class="hover:underline">Galeria</a>
+            <a href="depoimentos-5.html" class="hover:underline">Depoimentos</a>
+        </div>
+        <!-- Mobile Hamburger -->
+        <div class="md:hidden">
+            <button id="menuBtn" aria-label="Abrir menu" class="focus:outline-none">
+                <span class="material-symbols-outlined text-3xl" aria-hidden="true">menu</span>
+            </button>
+        </div>
+        <div id="mobileMenu" class="fixed top-0 left-0 w-full h-full bg-primary/95 text-white flex flex-col items-center justify-center gap-8 font-bold text-xl z-50 hidden">
+            <button id="closeMenuBtn" aria-label="Fechar menu" class="absolute top-6 right-6">
+                <span class="material-symbols-outlined text-4xl" aria-hidden="true">close</span>
+            </button>
+            <a href="index.html" class="hover:underline" onclick="closeMenu()">Início</a>
+            <a href="sobre-2.html" class="hover:underline" onclick="closeMenu()">Sobre</a>
+            <a href="service-3.html" class="hover:underline" onclick="closeMenu()">Serviços</a>
+            <a href="experiencia-4.html" class="hover:underline" onclick="closeMenu()">Experiência</a>
+            <a href="galeria.html" class="hover:underline" onclick="closeMenu()">Galeria</a>
+            <a href="depoimentos-5.html" class="hover:underline" onclick="closeMenu()">Depoimentos</a>
+        </div>
+    </nav>
+
+    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <!-- Seção de Título -->
+        <div class="flex flex-col gap-4 bg-gradient-to-r from-primary/10 to-primary/5 p-8 md:p-12 text-center">
+            <h1 class="text-3xl md:text-4xl font-black text-primary dark:text-purple-400">
+                Galeria de Momentos Especiais
+            </h1>
+            <p class="text-gray-700 dark:text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
+                Conheça nosso espaço acolhedor e veja os momentos lindos de bem-estar vivenciados por nossos clientes
+            </p>
+        </div>
+
+        <!-- Galeria Grid -->
+        <div class="w-full px-4 md:px-8 py-8 md:py-12">
+            <div class="max-w-7xl mx-auto">
+                <div id="galleryGrid" class="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <!-- As imagens serão carregadas aqui pelo JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para visualização em tela cheia -->
+    <div id="galleryModal" class="gallery-modal fixed inset-0 bg-black/80 z-40 hidden flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full">
+            <button id="closeModal" aria-label="Fechar galeria" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:ring-2 focus:ring-white">
+                <span class="material-symbols-outlined text-4xl">close</span>
+            </button>
+            <button id="prevImage" aria-label="Imagem anterior" class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 focus:ring-2 focus:ring-white">
+                <span class="material-symbols-outlined text-4xl">navigate_before</span>
+            </button>
+            <img id="modalImage" src="" alt="Imagem em tela cheia" class="w-full rounded-lg">
+            <button id="nextImage" aria-label="Próxima imagem" class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 focus:ring-2 focus:ring-white">
+                <span class="material-symbols-outlined text-4xl">navigate_next</span>
+            </button>
+            <div id="imageCounter" class="text-white text-center mt-4"></div>
+        </div>
+    </div>
+
+    <!-- Rodapé com WhatsApp -->
+    <footer class="w-full bg-primary text-white py-4 px-6 flex flex-col items-center gap-2 mt-8">
+        <div class="font-bold text-lg">Agende sua massagem:</div>
+        <a href="https://wa.me/5535998809418?text=Olá! Gostaria de agendar uma massagem." target="_blank" rel="noopener" class="flex items-center gap-2 font-bold text-base hover:underline focus:ring-2 focus:ring-white" aria-label="WhatsApp Lavanda nas Varandas">
+            <span class="material-symbols-outlined text-2xl" aria-hidden="true">call</span>
+            (35) 99880-9418
+        </a>
+        <div class="text-xs mt-2">&copy; 2025 Lavanda nas Varandas. Todos os direitos reservados.</div>
+    </footer>
+
+    <script src="js/galeria.js"></script>
+    <script>
+        // Menu responsivo
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>

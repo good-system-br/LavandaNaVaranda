@@ -1,120 +1,329 @@
 <!DOCTYPE html>
-
 <html class="light" lang="pt-BR">
-
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Página Inicial - Lavanda na Varanda</title>
+    <title>Lavandas na Varanda | Spa & Terapias</title>
     <meta name="description" content="Massagens terapêuticas e relaxantes em Monte Verde. Agende pelo WhatsApp e viva o bem-estar entre as montanhas!" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="css/index-1.css">
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings:
-                'FILL' 0,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 24
-        }
-    </style>
-    <script id="tailwind-config">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#9c30e8",
-                        "background-light": "#f7f6f8",
+                        "primary": "#9c30e8", // Roxo original
+                        "primary-dark": "#7a22b8",
+                        "secondary": "#f3e8ff", // Lilás bem claro para fundos
+                        "accent": "#5c8c48", // Verde natureza para detalhes
+                        "background-light": "#fdfdfd",
                         "background-dark": "#1a1121",
                     },
                     fontFamily: {
                         "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
                     },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem" },
                 },
             },
         }
     </script>
-    <!-- Removido CSS inline, agora em css/index-1.css -->
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark font-display">
-    <!-- Menu Responsivo -->
-    <nav class="w-full bg-primary text-white py-3 px-4 flex items-center justify-between mb-4">
-        <div class="font-black text-lg tracking-wide">Lavanda na Varanda</div>
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex gap-6 font-bold text-base">
-            <a href="index.html" class="hover:underline">Início</a>
-            <a href="sobre-2.html" class="hover:underline">Sobre</a>
-            <a href="service-3.html" class="hover:underline">Serviços</a>
-            <a href="experiencia-4.html" class="hover:underline">Experiência</a>
-            <a href="experiencias-fim-de-ano.html" class="hover:underline">Experiências Fim de Ano</a>
-            <a href="depoimentos-5.html" class="hover:underline">Depoimentos</a>
+<body class="bg-background-light text-slate-800 font-display selection:bg-primary selection:text-white">
+
+    <nav class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-3 px-4 flex items-center justify-between">
+        <div class="font-black text-xl tracking-wide text-primary flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">spa</span>
+            Lavandas na Varanda
         </div>
-        <!-- Mobile Hamburger -->
-        <div class="md:hidden">
-            <button id="menuBtn" aria-label="Abrir menu" class="focus:outline-none">
-                <span class="material-symbols-outlined text-3xl" aria-hidden="true">menu</span>
-            </button>
+        
+        <div class="hidden md:flex gap-6 font-bold text-sm text-gray-600 items-center">
+            <a href="#inicio" class="hover:text-primary transition-colors">Início</a>
+            <a href="#sobre" class="hover:text-primary transition-colors">Sobre</a>
+            <a href="#pacotes" class="hover:text-primary transition-colors">Fim de Ano</a>
+            <a href="#menu-massagens" class="hover:text-primary transition-colors">Massagens</a>
+            <a href="#depoimentos" class="hover:text-primary transition-colors">Depoimentos</a>
         </div>
-        <div id="mobileMenu" class="fixed top-0 left-0 w-full h-full bg-primary/95 text-white flex flex-col items-center justify-center gap-8 font-bold text-xl z-50 hidden">
-            <button id="closeMenuBtn" aria-label="Fechar menu" class="absolute top-6 right-6">
-                <span class="material-symbols-outlined text-4xl" aria-hidden="true">close</span>
-            </button>
-            <a href="index.html" class="hover:underline" onclick="closeMenu()">Início</a>
-            <a href="sobre-2.html" class="hover:underline" onclick="closeMenu()">Sobre</a>
-            <a href="service-3.html" class="hover:underline" onclick="closeMenu()">Serviços</a>
-            <a href="experiencia-4.html" class="hover:underline" onclick="closeMenu()">Experiência</a>
-            <a href="depoimentos-5.html" class="hover:underline" onclick="closeMenu()">Depoimentos</a>
-        </div>
+
+        <a href="https://wa.me/5535998809418" target="_blank" class="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-primary-dark transition-colors">
+            Agendar
+        </a>
     </nav>
-    <script src="js/index-1.js"></script>
-    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-        <div class="@container">
-            <div class="p-0">
-                <div class="flex min-h-screen flex-col gap-6 bg-cover bg-center bg-no-repeat items-center justify-center p-6 text-center"
-                    data-alt="A serene massage room with large windows showing a lush green mountain view in Monte Verde"
-                    style='background-image: linear-gradient(rgba(26, 17, 33, 0.2) 0%, rgba(26, 17, 33, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCz4H-UVp4yyfdbLYbhL-m2t1nzH8yms3JGkfWvNKSsxyx1djd2PWxTm1_MNliPBzxgUzjZPJqXcHS7ldfgxnsXzzIKmvrNnIdnFv-ECHwoKGHyORH9g_afQ8vAvjomKgu8PUplW9abUnGxb9R24gN8r3_rf55MTTGjh1d5IBEB3o_u6Cyx58btWEhixqKvzMgs1qxjfj3fp17DanDrGm_hjQBLnAv4BNt2lw6brjMBWatccyDp5GfqQewSbcwC-voswnRhuJx2vSYF");'>
-                    <div class="flex flex-col gap-4 max-w-3xl">
-                        <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-5xl">
-                            Spa Lavandas na Varanda – Oásis de Paz e Conexão
-                        </h1>
-                        <p class="text-gray-100 text-base md:text-lg leading-relaxed">
-                            Um espaço totalmente voltado para você. Oferecemos uma <strong class="font-bold">Experiência Sensorial de Bem-Estar</strong> com <strong class="font-bold">atendimento terapêutico personalizado</strong>, respeitando sua individualidade.
-                            Receba um delicioso <strong class="font-bold">chá de boas-vindas</strong>, acolhimento das suas sensações e a <strong class="font-bold">Sinergia Personalizada</strong> de óleos essenciais preparada para tocar sua alma, junto da terapia ideal para o seu momento presente.
-                        </p>
-                        <p class="text-gray-200 text-sm md:text-base">
-                            Fim de ano chegando: um convite especial ao seu equilíbrio e bem-estar. <strong class="font-bold">Você é a sua melhor escolha!</strong>
-                        </p>
-                    </div>
-                    <button
-                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors focus:ring-2 focus:ring-white"
-                        onclick="window.location.href='experiencias-fim-de-ano.html'"
-                        aria-label="Conhecer experiências de fim de ano">
-                        <span class="truncate">Conhecer Experiências</span>
-                    </button>
-                </div>
+
+    <div id="inicio" class="relative w-full h-[80vh] flex flex-col items-center justify-center text-center px-6 bg-cover bg-center"
+         style="background-image: linear-gradient(rgba(26, 17, 33, 0.4), rgba(26, 17, 33, 0.6)), url('IMG-20251203-WA0030.jpg');">
+        
+        <div class="max-w-4xl flex flex-col gap-6 animate-fade-in-up">
+            <h1 class="text-white text-4xl md:text-6xl font-black leading-tight drop-shadow-lg">
+                Um Oásis de paz e conexão
+            </h1>
+            <p class="text-gray-100 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+                Experiência Sensorial de Bem-Estar com atendimento terapêutico personalizado, totalmente voltado para o que você precisa.
+            </p>
+            <div class="mt-4">
+                <a href="#pacotes" class="inline-block bg-white text-primary px-8 py-3 rounded-full font-extrabold text-lg shadow-lg hover:bg-gray-100 transition transform hover:scale-105">
+                    Ver Experiências de Fim de Ano
+                </a>
             </div>
         </div>
     </div>
-</body>
 
-    <!-- Rodapé com WhatsApp -->
-    <footer class="w-full bg-primary text-white py-4 px-6 flex flex-col items-center gap-2 mt-8">
-        <div class="font-bold text-lg">Agende sua massagem:</div>
-        <a href="https://wa.me/5535998809418?text=Olá! Gostaria de agendar uma massagem." target="_blank" rel="noopener" class="flex items-center gap-2 font-bold text-base hover:underline focus:ring-2 focus:ring-white" aria-label="WhatsApp Lavanda nas Varandas">
-            <span class="material-symbols-outlined text-2xl" aria-hidden="true">call</span>
-            (35) 99880-9418
-        </a>
-        <div class="text-xs mt-2">&copy; 2025 Lavanda nas Varandas. Todos os direitos reservados.</div>
+    <section id="sobre" class="py-16 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-block px-3 py-1 bg-secondary text-primary font-bold rounded-full text-xs uppercase tracking-wider">
+                    Boas-vindas
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Você é a sua melhor escolha!</h2>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    Vamos lhe receber com um delicioso <strong>chá de boas-vindas</strong>, acolher suas sensações, emoções e pontos de tensão para identificar quais óleos essenciais preparar. 
+                </p>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    Criamos uma <strong>Sinergia Personalizada</strong> que toca a sua alma e escolhemos a Terapia que melhor atenda seu momento presente. O fim de ano está chegando com um convite especial ao seu equilíbrio.
+                </p>
+                
+                <div class="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
+                    <div class="text-primary font-bold text-xl">Adélia Carvalho</div>
+                    <div class="text-gray-400">|</div>
+                    <div class="text-gray-500 font-medium">Terapeuta Holística</div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <img src="assets/IMG-20251203-WA0032.jpg" alt="Massagem Craniana" class="rounded-xl shadow-2xl w-full object-cover h-[400px]">
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg max-w-xs hidden md:block">
+                    <p class="text-primary font-bold">Atendimento Personalizado</p>
+                    <p class="text-xs text-gray-500">Respeitando a sua individualidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-secondary/30 py-16 px-4">
+        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden md:flex">
+            <div class="md:w-1/2 h-64 md:h-auto relative">
+                <img src="assets/IMG-20251203-WA0034.jpg" alt="Pedras Quentes" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                <h3 class="text-2xl font-bold text-primary mb-4">Experiência de Bem-Estar</h3>
+                <p class="text-gray-600 mb-6">
+                    Inclui o chá de boas-vindas, conversa acolhedora, sinergia personalizada de óleos essenciais e a massagem escolhida para melhor atender suas buscas internas.
+                </p>
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="text-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <span class="block text-xs text-gray-500 uppercase">Individual</span>
+                        <span class="block text-xl font-bold text-gray-800">R$ 280</span>
+                    </div>
+                    <div class="text-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <span class="block text-xs text-gray-500 uppercase">Casal</span>
+                        <span class="block text-xl font-bold text-gray-800">R$ 560</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pacotes" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-primary font-bold tracking-wider uppercase text-sm">Renove suas energias</span>
+            <h2 class="text-3xl md:text-5xl font-black text-gray-900 mt-2 mb-4">Experiências Essenciais <br><span class="text-primary">Fim de Ano</span></h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Um Encontro de Bem-Estar e conexão com a Natureza para vivenciar momentos especialmente preparados para seus novos sonhos.</p>
+        </div>
+
+        <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+    </section>
+
+    <section id="menu-massagens" class="py-16 bg-background-dark text-white px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8">Menu de Massagens Disponíveis</h2>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Relaxante</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Terapêutica</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Drenagem Linfática</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Ayurvédica</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Pedras Quentes</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Chocolamour</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Reflexologia Podal</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Massagem Crânio Facial</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Reiki</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Alinhamento Energético</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="py-20 bg-gray-50 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Histórias de relaxamento e bem-estar</h2>
+                <p class="text-gray-500">Leia as experiências de quem já visitou nosso espaço.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300 flex flex-col gap-4">
+                    <div class="flex text-primary">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                    <p class="text-gray-600 italic">"Uma experiência de pura paz e relaxamento. O ambiente é incrivelmente aconchegante e a massagem foi transformadora."</p>
+                    <p class="text-sm font-bold text-gray-400 mt-auto">- Ana P.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300 flex flex-col gap-4">
+                    <div class="flex text-primary">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                    <p class="text-gray-600 italic">"Saí de lá renovada e sem dores. O melhor presente que eu poderia me dar. Atendimento impecável e um lugar mágico."</p>
+                    <p class="text-sm font-bold text-gray-400 mt-auto">- Maria S.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300 flex flex-col gap-4">
+                    <div class="flex text-primary">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                    <p class="text-gray-600 italic">"Atenção aos detalhes, desde a recepção até o chá no final. Um refúgio em Monte Verde que vale cada segundo."</p>
+                    <p class="text-sm font-bold text-gray-400 mt-auto">- João C.</p>
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-2 mt-8">
+                <div class="w-8 h-2 bg-primary rounded-full"></div>
+                <div class="w-2 h-2 bg-primary/30 rounded-full"></div>
+                <div class="w-2 h-2 bg-primary/30 rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-100 pt-12 pb-6 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <div class="font-black text-xl text-primary mb-2">Lavandas na Varanda</div>
+                <p class="text-gray-500 text-sm">Rua Beija-flor, 161 - Centro, Monte Verde/MG</p>
+                <p class="text-gray-500 text-sm">Atendimento com agendamento prévio.</p>
+            </div>
+            
+            <a href="https://wa.me/5535998809418?text=Olá! Gostaria de agendar uma experiência." 
+               target="_blank" 
+               class="flex items-center gap-3 bg-[#25D366] text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg hover:brightness-105 transition w-full md:w-auto justify-center">
+                <span class="material-symbols-outlined">call</span>
+                Agendar via WhatsApp
+            </a>
+        </div>
+        <div class="text-center mt-12 text-gray-400 text-xs">
+            © 2025 Lavandas nas Varandas. Todos os direitos reservados.
+        </div>
     </footer>
+
+    <script>
+        const experiencias = [
+            {
+                titulo: "Equilíbrio Energético",
+                itens: ["Massagem Terapêutica (Costas, pernas, pés)", "Massagem Crânio Facial", "Alinhamento Energético com cristais"],
+                duracao: "1h30min",
+                precoInd: "280,00",
+                precoCasal: "560,00",
+                cor: "border-l-4 border-green-400"
+            },
+            {
+                titulo: "Calma & Clareza",
+                itens: ["Escalda pés Aromático", "Massagem Relaxante", "Sinergia PAZ INTERIOR"],
+                duracao: "2h",
+                precoInd: "320,00",
+                precoCasal: "640,00",
+                cor: "border-l-4 border-blue-400"
+            },
+            {
+                titulo: "Novos Caminhos",
+                itens: ["Reflexologia podal", "Massagem Terapêutica ou Drenagem", "Sinergia REALIZAR"],
+                duracao: "2h",
+                precoInd: "320,00",
+                precoCasal: "640,00",
+                cor: "border-l-4 border-yellow-400"
+            },
+            {
+                titulo: "Serenidade",
+                itens: ["Chá de maracujá", "Massagem Relaxante c/ Pedras Quentes", "Sinergia PAZ INTERIOR"],
+                duracao: "2h",
+                precoInd: "350,00",
+                precoCasal: "700,00",
+                cor: "border-l-4 border-orange-400"
+            },
+            {
+                titulo: "Magia da Paixão",
+                itens: ["Massagem Relaxante c/ creme de chocolate", "Massagem Facial (Lavandas e Gerânio)"],
+                duracao: "1h30min",
+                precoInd: "320,00",
+                precoCasal: "640,00",
+                cor: "border-l-4 border-red-400"
+            },
+            {
+                titulo: "Leveza de Ser",
+                itens: ["Alinhamento Energético com cristais", "Massagem extremidades (Crânio, Mãos, Pés)"],
+                duracao: "1h30min",
+                precoInd: "280,00",
+                precoCasal: "560,00",
+                cor: "border-l-4 border-purple-400"
+            }
+        ];
+
+        const container = document.getElementById('cards-container');
+
+        experiencias.forEach(exp => {
+            // Cria a lista de itens com ícone
+            const itensHTML = exp.itens.map(item => 
+                `<li class="flex items-start gap-2 text-gray-600 text-sm mb-2">
+                    <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                    ${item}
+                </li>`
+            ).join('');
+
+            const cardHTML = `
+                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col justify-between ${exp.cor}">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">${exp.titulo}</h3>
+                        <div class="flex items-center gap-1 text-gray-400 text-xs font-bold mb-4 uppercase tracking-wide">
+                            <span class="material-symbols-outlined text-[16px]">schedule</span>
+                            Duração: ${exp.duracao}
+                        </div>
+                        <ul class="mb-6">
+                            ${itensHTML}
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-sm text-gray-500">Individual</span>
+                            <span class="font-bold text-lg text-primary">R$ ${exp.precoInd}</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Casal</span>
+                            <span class="font-bold text-lg text-primary">R$ ${exp.precoCasal}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += cardHTML;
+        });
+    </script>
+</body>
 </html>
