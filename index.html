@@ -42,23 +42,63 @@
 <body class="bg-background-light text-slate-800 font-display selection:bg-primary selection:text-white">
 
     <nav class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-3 px-4 flex items-center justify-between">
-        <div class="font-black text-xl tracking-wide text-primary flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary">spa</span>
-            Lavandas na Varanda
-        </div>
+        <a href="#inicio" class="flex items-center gap-2">
+            <img src="assets/Logo.png" alt="Lavandas na Varanda" class="h-10 md:h-12 w-auto">
+        </a>
         
         <div class="hidden md:flex gap-6 font-bold text-sm text-gray-600 items-center">
             <a href="#inicio" class="hover:text-primary transition-colors">Início</a>
             <a href="#sobre" class="hover:text-primary transition-colors">Sobre</a>
             <a href="#pacotes" class="hover:text-primary transition-colors">Fim de Ano</a>
             <a href="#menu-massagens" class="hover:text-primary transition-colors">Massagens</a>
+            <a href="#galeria" class="hover:text-primary transition-colors">Galeria</a>
             <a href="#depoimentos" class="hover:text-primary transition-colors">Depoimentos</a>
         </div>
 
         <a href="https://wa.me/5535998809418" target="_blank" class="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-primary-dark transition-colors">
             Agendar
         </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden text-gray-700">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-50 hidden">
+        <div class="flex justify-between items-center p-4 border-b border-gray-100">
+            <img src="assets/Logo.png" alt="Lavandas na Varanda" class="h-10 w-auto">
+            <button id="closeMenuBtn">
+                <span class="material-symbols-outlined text-3xl text-gray-700">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col gap-6 p-8 text-lg font-bold">
+            <a href="#inicio" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Início</a>
+            <a href="#sobre" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Sobre</a>
+            <a href="#pacotes" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Fim de Ano</a>
+            <a href="#menu-massagens" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Massagens</a>
+            <a href="#galeria" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Galeria</a>
+            <a href="#depoimentos" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Depoimentos</a>
+            <a href="https://wa.me/5535998809418" target="_blank" class="bg-primary text-white px-6 py-3 rounded-full text-center hover:bg-primary-dark transition-colors">
+                Agendar pelo WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.onclick = () => mobileMenu.classList.remove('hidden');
+        closeMenuBtn.onclick = () => mobileMenu.classList.add('hidden');
+        
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+    </script>
 
     <!-- Hero Carousel -->
     <div id="inicio" class="relative w-full h-[80vh] overflow-hidden">
@@ -216,6 +256,75 @@
                 <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Massagem Crânio Facial</span>
                 <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Reiki</span>
                 <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Alinhamento Energético</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Fotos -->
+    <section id="galeria" class="py-20 px-6 bg-gradient-to-br from-secondary/20 to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm">Nosso Espaço</span>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mt-2 mb-4">Galeria de <span class="text-primary">Momentos</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Conheça nosso ambiente acolhedor e as experiências que preparamos especialmente para você.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0024.jpg" alt="Lavandas na Varanda" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0025.jpg" alt="Ambiente Relaxante" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0026.jpg" alt="Terapia Holística" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0027.jpg" alt="Massagem Relaxante" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0028.jpg" alt="Óleos Essenciais" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0029.jpg" alt="Spa em Monte Verde" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0030.jpg" alt="Massagem Terapêutica" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0031.jpg" alt="Bem-Estar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0033.jpg" alt="Aromaterapia" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0035.jpg" alt="Ambiente Acolhedor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0036.jpg" alt="Experiência Sensorial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 aspect-square">
+                    <img src="assets/IMG-20251203-WA0037.jpg" alt="Terapia Personalizada" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://wa.me/5535998809418" target="_blank" class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-primary-dark transition-all transform hover:scale-105">
+                    <span class="material-symbols-outlined">calendar_today</span>
+                    Agende sua Visita
+                </a>
             </div>
         </div>
     </section>
