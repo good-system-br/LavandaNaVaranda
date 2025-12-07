@@ -18,51 +18,71 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#9c30e8", // Roxo original
+                        primary: "#9c30e8",
                         "primary-dark": "#7a22b8",
-                        "secondary": "#f3e8ff", // Lilás bem claro para fundos
-                        "accent": "#5c8c48", // Verde natureza para detalhes
-                        "background-light": "#fdfdfd",
-                        "background-dark": "#1a1121",
+                        secondary: "#f2e8ff",
+                        "secondary-strong": "#e7d5ff",
+                        accent: "#4b8a3c",
+                        "neutral-100": "#f8f7fb",
+                        "neutral-200": "#f0eef5",
+                        "neutral-800": "#1a1121",
                     },
                     fontFamily: {
-                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+                        display: ["Plus Jakarta Sans", "Noto Sans", "sans-serif"],
                     },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem" },
+                    boxShadow: {
+                        lift: "0 15px 50px -20px rgba(34, 0, 68, 0.25)",
+                        card: "0 18px 40px -24px rgba(29, 10, 61, 0.25)",
+                    },
+                    borderRadius: { DEFAULT: "1.2rem", lg: "1.6rem", xl: "2.2rem" },
+                    spacing: {
+                        18: "4.5rem",
+                        22: "5.5rem",
+                    },
                 },
             },
-        }
+        };
     </script>
     <style>
         .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         html { scroll-behavior: smooth; }
+        body { background: linear-gradient(180deg, #fdfbff 0%, #f7f4ff 40%, #ffffff 100%); }
     </style>
 </head>
 
 <body class="bg-background-light text-slate-800 font-display selection:bg-primary selection:text-white">
 
-    <nav class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-3 px-4 flex items-center justify-between">
-        <a href="#inicio" class="flex items-center gap-2">
-            <img src="assets/Logo.png" alt="Lavandas na Varanda" class="h-10 md:h-12 w-auto">
-        </a>
-        
-        <div class="hidden md:flex gap-6 font-bold text-sm text-gray-600 items-center">
-            <a href="#inicio" class="hover:text-primary transition-colors">Início</a>
-            <a href="#sobre" class="hover:text-primary transition-colors">Sobre</a>
-            <a href="#pacotes" class="hover:text-primary transition-colors">Fim de Ano</a>
-            <a href="#menu-massagens" class="hover:text-primary transition-colors">Massagens</a>
-            <a href="#galeria" class="hover:text-primary transition-colors">Galeria</a>
-            <a href="#depoimentos" class="hover:text-primary transition-colors">Depoimentos</a>
+    <nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-gray-100/70">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between gap-4">
+            <a href="#inicio" class="flex items-center gap-3">
+                <img src="assets/Logo.png" alt="Lavandas na Varanda" class="h-10 md:h-12 w-auto drop-shadow-sm">
+                <div class="hidden sm:flex flex-col leading-tight">
+                    <span class="text-[11px] uppercase tracking-[0.22em] text-gray-400 font-bold">Spa & Terapias</span>
+                    <span class="text-sm md:text-base font-extrabold text-gray-800">Lavandas na Varanda</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex gap-6 font-semibold text-sm text-gray-600 items-center">
+                <a href="#inicio" class="hover:text-primary transition-colors">Início</a>
+                <a href="#sobre" class="hover:text-primary transition-colors">Sobre</a>
+                <a href="#pacotes" class="hover:text-primary transition-colors">Fim de Ano</a>
+                <a href="#menu-massagens" class="hover:text-primary transition-colors">Massagens</a>
+                <a href="#galeria" class="hover:text-primary transition-colors">Galeria</a>
+                <a href="#depoimentos" class="hover:text-primary transition-colors">Depoimentos</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/5535998809418" target="_blank" class="hidden md:inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-lift hover:shadow-card hover:bg-primary-dark transition-all">
+                    <span class="material-symbols-outlined text-sm">chat</span>
+                    Agendar
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden text-gray-800 bg-neutral-200/70 rounded-full p-2 shadow-sm hover:bg-neutral-200 transition">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
         </div>
-
-        <a href="https://wa.me/5535998809418" target="_blank" class="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-primary-dark transition-colors">
-            Agendar
-        </a>
-
-        <!-- Mobile Menu Button -->
-        <button id="menuBtn" class="md:hidden text-gray-700">
-            <span class="material-symbols-outlined text-3xl">menu</span>
-        </button>
     </nav>
 
     <!-- Mobile Menu -->
@@ -86,103 +106,64 @@
         </div>
     </div>
 
-    <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        menuBtn.onclick = () => mobileMenu.classList.remove('hidden');
-        closeMenuBtn.onclick = () => mobileMenu.classList.add('hidden');
-        
-        function closeMenu() {
-            mobileMenu.classList.add('hidden');
-        }
-    </script>
-
     <!-- Hero Carousel -->
-    <div id="inicio" class="relative w-full h-[80vh] overflow-hidden">
+    <div id="inicio" class="relative w-full h-[78vh] md:h-[86vh] overflow-hidden">
         <!-- Carousel Container -->
         <div id="heroCarousel" class="relative w-full h-full">
-            <!-- Slide 1 -->
             <div class="carousel-slide absolute w-full h-full transition-opacity duration-1000 opacity-100 bg-cover bg-center"
-                 style="background-image: linear-gradient(rgba(26, 17, 33, 0.4), rgba(26, 17, 33, 0.6)), url('assets/IMG-20251203-WA0030.jpg');">
+                 style="background-image: linear-gradient(135deg, rgba(16, 8, 28, 0.65), rgba(36, 12, 64, 0.45)), url('assets/IMG-20251203-WA0029.jpg');">
             </div>
-            <!-- Slide 2 -->
             <div class="carousel-slide absolute w-full h-full transition-opacity duration-1000 opacity-0 bg-cover bg-center"
-                 style="background-image: linear-gradient(rgba(26, 17, 33, 0.4), rgba(26, 17, 33, 0.6)), url('assets/IMG-20251203-WA0032.jpg');">
+                 style="background-image: linear-gradient(135deg, rgba(16, 8, 28, 0.65), rgba(36, 12, 64, 0.45)), url('assets/IMG-20251203-WA0032.jpg');">
             </div>
-            <!-- Slide 3 -->
             <div class="carousel-slide absolute w-full h-full transition-opacity duration-1000 opacity-0 bg-cover bg-center"
-                 style="background-image: linear-gradient(rgba(26, 17, 33, 0.4), rgba(26, 17, 33, 0.6)), url('assets/IMG-20251203-WA0028.jpg');">
+                 style="background-image: linear-gradient(135deg, rgba(16, 8, 28, 0.65), rgba(36, 12, 64, 0.45)), url('assets/IMG-20251203-WA0028.jpg');">
             </div>
         </div>
         
         <!-- Content Overlay -->
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-            <div class="max-w-4xl flex flex-col gap-6 animate-fade-in-up">
-                <h1 class="text-white text-4xl md:text-6xl font-black leading-tight drop-shadow-lg">
-                    Um Oásis de paz e conexão
-                </h1>
-                <p class="text-gray-100 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-                    Experiência Sensorial de Bem-Estar com atendimento terapêutico personalizado, totalmente voltado para o que você precisa.
-                </p>
-                <div class="mt-4">
-                    <a href="#pacotes" class="inline-block bg-white text-primary px-8 py-3 rounded-full font-extrabold text-lg shadow-lg hover:bg-gray-100 transition transform hover:scale-105">
-                        Ver Experiências de Fim de Ano
-                    </a>
+        <div class="absolute inset-0 flex items-center">
+            <div class="w-full max-w-6xl mx-auto px-6 md:px-10 lg:px-14 z-10">
+                <div class="max-w-3xl flex flex-col gap-6 bg-black/30 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-[0_25px_80px_-40px_rgba(0,0,0,0.65)]">
+                    <div class="flex items-center gap-3 text-white/80 text-sm font-semibold uppercase tracking-[0.18em]">
+                        <span class="w-2 h-2 rounded-full bg-primary"></span>
+                        Spa & Terapias Exclusivas em Monte Verde
+                    </div>
+                    <h1 class="text-white text-4xl md:text-6xl font-black leading-tight drop-shadow-xl">
+                        Um oásis de paz e conexão
+                    </h1>
+                    <p class="text-gray-100 text-lg md:text-xl font-medium leading-relaxed">
+                        Experiência sensorial com atendimento terapêutico personalizado, aromas, calor e toque que cuidam do seu corpo e das suas emoções.
+                    </p>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-3 mt-2">
+                        <a href="#pacotes" class="inline-flex items-center justify-center gap-2 bg-white text-primary px-7 py-3 rounded-full font-extrabold text-base shadow-card hover:bg-neutral-200 transition-all hover:translate-y-[-1px]">
+                            Ver experiências
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                        <a href="https://wa.me/5535998809418" target="_blank" class="inline-flex items-center justify-center gap-2 text-white border border-white/60 px-7 py-3 rounded-full font-bold text-base hover:bg-white/10 transition-all">
+                            Agendar agora
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
         
         <!-- Carousel Indicators -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-100 transition-opacity" data-slide="0"></button>
-            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 transition-opacity" data-slide="1"></button>
-            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 transition-opacity" data-slide="2"></button>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-100 transition-opacity" data-slide="0" aria-label="Slide 1"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 transition-opacity" data-slide="1" aria-label="Slide 2"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 transition-opacity" data-slide="2" aria-label="Slide 3"></button>
         </div>
     </div>
     
-    <script>
-        // Hero Carousel Auto-play
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const indicators = document.querySelectorAll('.carousel-indicator');
-        const totalSlides = slides.length;
-        
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.opacity = i === index ? '1' : '0';
-            });
-            indicators.forEach((indicator, i) => {
-                indicator.style.opacity = i === index ? '1' : '0.5';
-            });
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-        
-        // Auto-play every 5 seconds
-        setInterval(nextSlide, 5000);
-        
-        // Click indicators to jump to slide
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentSlide = index;
-                showSlide(currentSlide);
-            });
-        });
-    </script>
-
-    <section id="sobre" class="py-16 px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
+    <section id="sobre" class="py-18 px-6 md:px-10 lg:px-14 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-18 items-center">
             <div class="space-y-6">
-                <div class="inline-block px-3 py-1 bg-secondary text-primary font-bold rounded-full text-xs uppercase tracking-wider">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-strong text-primary font-bold rounded-full text-[11px] uppercase tracking-[0.22em]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
                     Boas-vindas
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Você é a sua melhor escolha!</h2>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">Você é a sua melhor escolha!</h2>
                 <p class="text-gray-600 leading-relaxed text-lg">
                     Vamos lhe receber com um delicioso <strong>chá de boas-vindas</strong>, acolher suas sensações, emoções e pontos de tensão para identificar quais óleos essenciais preparar. 
                 </p>
@@ -190,16 +171,17 @@
                     Criamos uma <strong>Sinergia Personalizada</strong> que toca a sua alma e escolhemos a Terapia que melhor atenda seu momento presente. O fim de ano está chegando com um convite especial ao seu equilíbrio.
                 </p>
                 
-                <div class="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
-                    <div class="text-primary font-bold text-xl">Adélia Carvalho</div>
+                <div class="flex items-center gap-4 mt-6 pt-4 border-t border-neutral-200">
+                    <div class="text-primary font-black text-xl">Adélia Carvalho</div>
                     <div class="text-gray-400">|</div>
-                    <div class="text-gray-500 font-medium">Terapeuta Holística</div>
+                    <div class="text-gray-500 font-semibold">Terapeuta Holística</div>
                 </div>
             </div>
             
             <div class="relative">
-                <img src="assets/IMG-20251203-WA0032.jpg" alt="Massagem Craniana" class="rounded-xl shadow-2xl w-full object-cover h-[400px]">
-                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg max-w-xs hidden md:block">
+                <div class="absolute -inset-4 bg-gradient-to-br from-primary/10 to-transparent rounded-xl blur-2xl"></div>
+                <img src="assets/IMG-20251203-WA0032.jpg" alt="Massagem Craniana" class="relative rounded-2xl shadow-[0_20px_60px_-30px_rgba(29,10,61,0.45)] w-full object-cover h-[420px]">
+                <div class="absolute -bottom-6 -left-6 bg-white/95 p-4 rounded-xl shadow-card max-w-xs hidden md:block">
                     <p class="text-primary font-bold">Atendimento Personalizado</p>
                     <p class="text-xs text-gray-500">Respeitando a sua individualidade</p>
                 </div>
@@ -207,55 +189,58 @@
         </div>
     </section>
 
-    <section class="bg-secondary/30 py-16 px-4">
-        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden md:flex">
+    <section class="bg-neutral-100 py-18 px-6">
+        <div class="max-w-5xl mx-auto bg-white/90 rounded-2xl shadow-card overflow-hidden md:flex">
             <div class="md:w-1/2 h-64 md:h-auto relative">
                 <img src="assets/IMG-20251203-WA0034.jpg" alt="Pedras Quentes" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-tr from-black/35 to-transparent"></div>
             </div>
-            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-                <h3 class="text-2xl font-bold text-primary mb-4">Experiência de Bem-Estar</h3>
-                <p class="text-gray-600 mb-6">
+            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center gap-6">
+                <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">bem-estar completo</div>
+                <h3 class="text-2xl md:text-3xl font-black text-gray-900">Experiência de Bem-Estar</h3>
+                <p class="text-gray-600">
                     Inclui o chá de boas-vindas, conversa acolhedora, sinergia personalizada de óleos essenciais e a massagem escolhida para melhor atender suas buscas internas.
                 </p>
-                <div class="grid grid-cols-2 gap-4 mb-6">
-                    <div class="text-center p-3 bg-gray-50 rounded-lg border border-gray-100">
-                        <span class="block text-xs text-gray-500 uppercase">Individual</span>
-                        <span class="block text-xl font-bold text-gray-800">R$ 280</span>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center p-4 bg-neutral-100 rounded-xl border border-neutral-200">
+                        <span class="block text-[11px] text-gray-500 uppercase tracking-[0.15em]">Individual</span>
+                        <span class="block text-2xl font-black text-primary">R$ 280</span>
                     </div>
-                    <div class="text-center p-3 bg-gray-50 rounded-lg border border-gray-100">
-                        <span class="block text-xs text-gray-500 uppercase">Casal</span>
-                        <span class="block text-xl font-bold text-gray-800">R$ 560</span>
+                    <div class="text-center p-4 bg-neutral-100 rounded-xl border border-neutral-200">
+                        <span class="block text-[11px] text-gray-500 uppercase tracking-[0.15em]">Casal</span>
+                        <span class="block text-2xl font-black text-primary">R$ 560</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="pacotes" class="py-20 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <span class="text-primary font-bold tracking-wider uppercase text-sm">Renove suas energias</span>
-            <h2 class="text-3xl md:text-5xl font-black text-gray-900 mt-2 mb-4">Experiências Essenciais <br><span class="text-primary">Fim de Ano</span></h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Um Encontro de Bem-Estar e conexão com a Natureza para vivenciar momentos especialmente preparados para seus novos sonhos.</p>
+    <section id="pacotes" class="py-20 px-6 md:px-10 lg:px-14 max-w-7xl mx-auto">
+        <div class="text-center mb-14">
+            <span class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-strong text-primary font-bold rounded-full text-[11px] uppercase tracking-[0.22em]">Renove suas energias</span>
+            <h2 class="text-3xl md:text-5xl font-black text-gray-900 mt-3 mb-3">Experiências Essenciais <span class="text-primary">Fim de Ano</span></h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Um encontro de bem-estar e conexão com a natureza para vivenciar momentos especialmente preparados para seus novos sonhos.</p>
         </div>
 
-        <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
+        <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"></div>
     </section>
 
-    <section id="menu-massagens" class="py-16 bg-background-dark text-white px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8">Menu de Massagens Disponíveis</h2>
-            <div class="flex flex-wrap justify-center gap-3">
-                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Relaxante</span>
-                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Terapêutica</span>
-                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Drenagem Linfática</span>
-                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Ayurvédica</span>
-                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Pedras Quentes</span>
-                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Chocolamour</span>
-                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Reflexologia Podal</span>
-                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Massagem Crânio Facial</span>
-                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Reiki</span>
-                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-primary hover:border-primary transition cursor-default">Alinhamento Energético</span>
+    <section id="menu-massagens" class="py-18 bg-neutral-800 text-white px-6">
+        <div class="max-w-5xl mx-auto text-center space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-white font-bold rounded-full text-[11px] uppercase tracking-[0.22em]">menu terapêutico</div>
+            <h2 class="text-3xl md:text-4xl font-black">Menu de Massagens Disponíveis</h2>
+            <p class="text-white/80 max-w-3xl mx-auto">Escolha a técnica que mais combina com o momento do seu corpo e mente.</p>
+            <div class="flex flex-wrap justify-center gap-3 mt-4">
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/15 transition">Relaxante</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/15 transition">Terapêutica</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/15 transition">Drenagem Linfática</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/15 transition">Ayurvédica</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/15 transition">Pedras Quentes</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/15 transition">Chocolamour</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/15 transition">Reflexologia Podal</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/15 transition">Massagem Crânio Facial</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/15 transition">Reiki</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/15 transition">Alinhamento Energético</span>
             </div>
         </div>
     </section>
@@ -329,15 +314,16 @@
         </div>
     </section>
 
-    <section id="depoimentos" class="py-20 bg-gray-50 px-6">
+    <section id="depoimentos" class="py-20 bg-neutral-100 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Histórias de relaxamento e bem-estar</h2>
+                <span class="inline-flex items-center gap-2 px-3 py-1 bg-white text-primary font-bold rounded-full text-[11px] uppercase tracking-[0.22em]">Depoimentos</span>
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-3 mb-2">Histórias de relaxamento e bem-estar</h2>
                 <p class="text-gray-500">Leia as experiências de quem já visitou nosso espaço.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300 flex flex-col gap-4">
+                <article class="bg-white p-8 rounded-2xl shadow-card hover:shadow-[0_20px_60px_-30px_rgba(29,10,61,0.25)] transition duration-300 flex flex-col gap-4">
                     <div class="flex text-primary">
                         <span class="material-symbols-outlined">star</span>
                         <span class="material-symbols-outlined">star</span>
@@ -345,11 +331,11 @@
                         <span class="material-symbols-outlined">star</span>
                         <span class="material-symbols-outlined">star</span>
                     </div>
-                    <p class="text-gray-600 italic">"Uma experiência de pura paz e relaxamento. O ambiente é incrivelmente aconchegante e a massagem foi transformadora."</p>
-                    <p class="text-sm font-bold text-gray-400 mt-auto">- Ana P.</p>
-                </div>
+                    <p class="text-gray-700 leading-relaxed">"Uma experiência de pura paz e relaxamento. O ambiente é incrivelmente aconchegante e a massagem foi transformadora."</p>
+                    <p class="text-sm font-bold text-gray-400 mt-auto">Ana P.</p>
+                </article>
 
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300 flex flex-col gap-4">
+                <article class="bg-white p-8 rounded-2xl shadow-card hover:shadow-[0_20px_60px_-30px_rgba(29,10,61,0.25)] transition duration-300 flex flex-col gap-4">
                     <div class="flex text-primary">
                         <span class="material-symbols-outlined">star</span>
                         <span class="material-symbols-outlined">star</span>
@@ -357,11 +343,11 @@
                         <span class="material-symbols-outlined">star</span>
                         <span class="material-symbols-outlined">star</span>
                     </div>
-                    <p class="text-gray-600 italic">"Saí de lá renovada e sem dores. O melhor presente que eu poderia me dar. Atendimento impecável e um lugar mágico."</p>
-                    <p class="text-sm font-bold text-gray-400 mt-auto">- Maria S.</p>
-                </div>
+                    <p class="text-gray-700 leading-relaxed">"Saí de lá renovada e sem dores. O melhor presente que eu poderia me dar. Atendimento impecável e um lugar mágico."</p>
+                    <p class="text-sm font-bold text-gray-400 mt-auto">Maria S.</p>
+                </article>
 
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300 flex flex-col gap-4">
+                <article class="bg-white p-8 rounded-2xl shadow-card hover:shadow-[0_20px_60px_-30px_rgba(29,10,61,0.25)] transition duration-300 flex flex-col gap-4">
                     <div class="flex text-primary">
                         <span class="material-symbols-outlined">star</span>
                         <span class="material-symbols-outlined">star</span>
@@ -369,127 +355,176 @@
                         <span class="material-symbols-outlined">star</span>
                         <span class="material-symbols-outlined">star</span>
                     </div>
-                    <p class="text-gray-600 italic">"Atenção aos detalhes, desde a recepção até o chá no final. Um refúgio em Monte Verde que vale cada segundo."</p>
-                    <p class="text-sm font-bold text-gray-400 mt-auto">- João C.</p>
-                </div>
+                    <p class="text-gray-700 leading-relaxed">"Atenção aos detalhes, desde a recepção até o chá no final. Um refúgio em Monte Verde que vale cada segundo."</p>
+                    <p class="text-sm font-bold text-gray-400 mt-auto">João C.</p>
+                </article>
             </div>
             
-            <div class="flex justify-center gap-2 mt-8">
-                <div class="w-8 h-2 bg-primary rounded-full"></div>
+            <div class="flex justify-center gap-2 mt-10">
+                <div class="w-10 h-2 bg-primary rounded-full"></div>
                 <div class="w-2 h-2 bg-primary/30 rounded-full"></div>
                 <div class="w-2 h-2 bg-primary/30 rounded-full"></div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-white border-t border-gray-100 pt-12 pb-6 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-left">
-                <div class="font-black text-xl text-primary mb-2">Lavandas na Varanda</div>
+    <footer class="bg-white border-t border-neutral-200 pt-14 pb-8 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+            <div class="space-y-3">
+                <div class="font-black text-2xl text-primary">Lavandas na Varanda</div>
                 <p class="text-gray-500 text-sm">Rua Beija-flor, 161 - Centro, Monte Verde/MG</p>
                 <p class="text-gray-500 text-sm">Atendimento com agendamento prévio.</p>
             </div>
             
-            <a href="https://wa.me/5535998809418?text=Olá! Gostaria de agendar uma experiência." 
-               target="_blank" 
-               class="flex items-center gap-3 bg-[#25D366] text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg hover:brightness-105 transition w-full md:w-auto justify-center">
-                <span class="material-symbols-outlined">call</span>
-                Agendar via WhatsApp
-            </a>
+            <div class="flex flex-col md:items-end gap-3">
+                <a href="https://wa.me/5535998809418?text=Olá! Gostaria de agendar uma experiência." 
+                   target="_blank" 
+                   class="flex items-center gap-3 bg-[#25D366] text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg hover:brightness-105 transition w-full md:w-auto justify-center">
+                    <span class="material-symbols-outlined">call</span>
+                    Agendar via WhatsApp
+                </a>
+                <div class="text-gray-500 text-sm">Contato: (35) 99880-9418</div>
+                <div class="text-gray-500 text-sm">Terapeuta: Adélia Carvalho</div>
+            </div>
         </div>
-        <div class="text-center mt-12 text-gray-400 text-xs">
-            © 2025 Lavandas nas Varandas. Todos os direitos reservados.
+        <div class="text-center mt-10 text-gray-400 text-xs">
+            © 2025 Lavandas na Varanda. Todos os direitos reservados.
         </div>
     </footer>
 
     <script>
-        const experiencias = [
-            {
-                titulo: "Equilíbrio Energético",
-                itens: ["Massagem Terapêutica (Costas, pernas, pés)", "Massagem Crânio Facial", "Alinhamento Energético com cristais"],
-                duracao: "1h30min",
-                precoInd: "280,00",
-                precoCasal: "560,00",
-                cor: "border-l-4 border-green-400"
-            },
-            {
-                titulo: "Calma & Clareza",
-                itens: ["Escalda pés Aromático", "Massagem Relaxante", "Sinergia PAZ INTERIOR"],
-                duracao: "2h",
-                precoInd: "320,00",
-                precoCasal: "640,00",
-                cor: "border-l-4 border-blue-400"
-            },
-            {
-                titulo: "Novos Caminhos",
-                itens: ["Reflexologia podal", "Massagem Terapêutica ou Drenagem", "Sinergia REALIZAR"],
-                duracao: "2h",
-                precoInd: "320,00",
-                precoCasal: "640,00",
-                cor: "border-l-4 border-yellow-400"
-            },
-            {
-                titulo: "Serenidade",
-                itens: ["Chá de maracujá", "Massagem Relaxante c/ Pedras Quentes", "Sinergia PAZ INTERIOR"],
-                duracao: "2h",
-                precoInd: "350,00",
-                precoCasal: "700,00",
-                cor: "border-l-4 border-orange-400"
-            },
-            {
-                titulo: "Magia da Paixão",
-                itens: ["Massagem Relaxante c/ creme de chocolate", "Massagem Facial (Lavandas e Gerânio)"],
-                duracao: "1h30min",
-                precoInd: "320,00",
-                precoCasal: "640,00",
-                cor: "border-l-4 border-red-400"
-            },
-            {
-                titulo: "Leveza de Ser",
-                itens: ["Alinhamento Energético com cristais", "Massagem extremidades (Crânio, Mãos, Pés)"],
-                duracao: "1h30min",
-                precoInd: "280,00",
-                precoCasal: "560,00",
-                cor: "border-l-4 border-purple-400"
-            }
-        ];
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu
+            const menuBtn = document.getElementById('menuBtn');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
 
-        const container = document.getElementById('cards-container');
+            const toggleMenu = (open) => {
+                mobileMenu.classList.toggle('hidden', !open);
+            };
 
-        experiencias.forEach(exp => {
-            // Cria a lista de itens com ícone
-            const itensHTML = exp.itens.map(item => 
-                `<li class="flex items-start gap-2 text-gray-600 text-sm mb-2">
-                    <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
-                    ${item}
-                </li>`
-            ).join('');
+            menuBtn?.addEventListener('click', () => toggleMenu(true));
+            closeMenuBtn?.addEventListener('click', () => toggleMenu(false));
+            mobileMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
 
-            const cardHTML = `
-                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col justify-between ${exp.cor}">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">${exp.titulo}</h3>
-                        <div class="flex items-center gap-1 text-gray-400 text-xs font-bold mb-4 uppercase tracking-wide">
-                            <span class="material-symbols-outlined text-[16px]">schedule</span>
-                            Duração: ${exp.duracao}
+            // Hero Carousel
+            const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+            const indicators = Array.from(document.querySelectorAll('.carousel-indicator'));
+            let currentSlide = 0;
+
+            const showSlide = (index) => {
+                slides.forEach((slide, i) => {
+                    slide.style.opacity = i === index ? '1' : '0';
+                });
+                indicators.forEach((indicator, i) => {
+                    indicator.style.opacity = i === index ? '1' : '0.5';
+                });
+            };
+
+            const nextSlide = () => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            };
+
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                });
+            });
+
+            setInterval(nextSlide, 5000);
+
+            // Cards Dinâmicos
+            const experiencias = [
+                {
+                    titulo: "Equilíbrio Energético",
+                    itens: ["Massagem Terapêutica (Costas, pernas, pés)", "Massagem Crânio Facial", "Alinhamento Energético com cristais"],
+                    duracao: "1h30min",
+                    precoInd: "280,00",
+                    precoCasal: "560,00",
+                    cor: "border-l-4 border-green-400"
+                },
+                {
+                    titulo: "Calma & Clareza",
+                    itens: ["Escalda pés Aromático", "Massagem Relaxante", "Sinergia PAZ INTERIOR"],
+                    duracao: "2h",
+                    precoInd: "320,00",
+                    precoCasal: "640,00",
+                    cor: "border-l-4 border-blue-400"
+                },
+                {
+                    titulo: "Novos Caminhos",
+                    itens: ["Reflexologia podal", "Massagem Terapêutica ou Drenagem", "Sinergia REALIZAR"],
+                    duracao: "2h",
+                    precoInd: "320,00",
+                    precoCasal: "640,00",
+                    cor: "border-l-4 border-yellow-400"
+                },
+                {
+                    titulo: "Serenidade",
+                    itens: ["Chá de maracujá", "Massagem Relaxante c/ Pedras Quentes", "Sinergia PAZ INTERIOR"],
+                    duracao: "2h",
+                    precoInd: "350,00",
+                    precoCasal: "700,00",
+                    cor: "border-l-4 border-orange-400"
+                },
+                {
+                    titulo: "Magia da Paixão",
+                    itens: ["Massagem Relaxante c/ creme de chocolate", "Massagem Facial (Lavandas e Gerânio)"],
+                    duracao: "1h30min",
+                    precoInd: "320,00",
+                    precoCasal: "640,00",
+                    cor: "border-l-4 border-red-400"
+                },
+                {
+                    titulo: "Leveza de Ser",
+                    itens: ["Alinhamento Energético com cristais", "Massagem extremidades (Crânio, Mãos, Pés)"],
+                    duracao: "1h30min",
+                    precoInd: "280,00",
+                    precoCasal: "560,00",
+                    cor: "border-l-4 border-purple-400"
+                }
+            ];
+
+            const container = document.getElementById('cards-container');
+
+            experiencias.forEach(exp => {
+                const itensHTML = exp.itens.map(item => 
+                    `<li class="flex items-start gap-2 text-gray-600 text-sm mb-2">
+                        <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                        ${item}
+                    </li>`
+                ).join('');
+
+                const cardHTML = `
+                    <article class="bg-white/90 rounded-2xl p-6 shadow-card hover:shadow-[0_20px_60px_-30px_rgba(29,10,61,0.35)] transition-all duration-300 border border-neutral-200/70 flex flex-col justify-between ${exp.cor}">
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-black text-gray-900">${exp.titulo}</h3>
+                                <span class="text-[12px] font-bold uppercase tracking-[0.18em] text-gray-400 flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+                                    ${exp.duracao}
+                                </span>
+                            </div>
+                            <ul class="mb-2">
+                                ${itensHTML}
+                            </ul>
                         </div>
-                        <ul class="mb-6">
-                            ${itensHTML}
-                        </ul>
-                    </div>
-                    <div class="pt-4 border-t border-gray-100">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-sm text-gray-500">Individual</span>
-                            <span class="font-bold text-lg text-primary">R$ ${exp.precoInd}</span>
+                        <div class="pt-4 mt-2 border-t border-neutral-200 flex justify-between gap-3 text-sm font-semibold text-gray-600">
+                            <div class="flex flex-col">
+                                <span class="text-[12px] uppercase tracking-[0.12em] text-gray-500">Individual</span>
+                                <span class="text-lg font-black text-primary">R$ ${exp.precoInd}</span>
+                            </div>
+                            <div class="flex flex-col items-end">
+                                <span class="text-[12px] uppercase tracking-[0.12em] text-gray-500">Casal</span>
+                                <span class="text-lg font-black text-primary">R$ ${exp.precoCasal}</span>
+                            </div>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">Casal</span>
-                            <span class="font-bold text-lg text-primary">R$ ${exp.precoCasal}</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-            container.innerHTML += cardHTML;
+                    </article>
+                `;
+                container.insertAdjacentHTML('beforeend', cardHTML);
+            });
         });
     </script>
 </body>
