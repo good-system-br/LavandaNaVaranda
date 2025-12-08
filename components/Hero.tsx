@@ -7,20 +7,35 @@ const Hero: React.FC = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-        }, 5000);
+        }, 3000);
         return () => clearInterval(timer);
     }, []);
 
     return (
-        <div id="inicio" className="relative w-full h-[78vh] md:h-[86vh] overflow-hidden bg-gray-900">
+        <div id="inicio" className="relative w-full h-[78vh] md:h-[86vh] overflow-hidden bg-gray-900 flex items-center justify-center">
+            {/* Background blur effect */}
+            <div
+                className="absolute inset-0 w-full h-full blur-2xl scale-110 opacity-30"
+                style={{ 
+                    backgroundImage: `url('${HERO_IMAGES[currentSlide]}')`
+                }}
+            />
+            
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/40"></div>
+            
+            {/* Main images with object-cover */}
             {HERO_IMAGES.map((img, index) => (
                 <div
                     key={index}
-                    className={`absolute w-full h-full transition-opacity duration-1000 bg-cover bg-center ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
-                    style={{ 
-                        backgroundImage: `linear-gradient(135deg, rgba(16, 8, 28, 0.65), rgba(36, 12, 64, 0.45)), url('${img}')`
-                    }}
-                />
+                    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                >
+                    <img
+                        src={img}
+                        alt={`Slide ${index + 1}`}
+                        className="w-full h-full object-cover z-0"
+                    />
+                </div>
             ))}
             
             <div className="absolute inset-0 flex items-center">

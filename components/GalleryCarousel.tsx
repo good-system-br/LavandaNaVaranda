@@ -39,19 +39,23 @@ const GalleryCarousel: React.FC = () => {
                     </p>
                 </div>
 
-                {/* Main Featured Image - Large Carousel */}
-                <div className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl mb-8 group">
+                {/* Main Featured Image - Large Carousel with Blur Background */}
+                <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-2xl bg-neutral-100 shadow-2xl mb-8 group">
+                    {/* 1. Imagem de Fundo (Borrada para preencher o espaço) */}
                     <div 
-                        className="w-full h-full bg-cover bg-center transition-all duration-700 ease-in-out transform hover:scale-105"
+                        className="absolute inset-0 w-full h-full bg-cover bg-center blur-2xl scale-110 opacity-40 transition-all duration-500 group-hover:scale-125"
                         style={{ backgroundImage: `url('${GALLERY_IMAGES[activeIndex].url}')` }}
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-8 md:p-12" aria-hidden="true"> 
-                            {/* título removido intencionalmente - decoração visual preservada */}
-                        </div>
-                    </div>
+                    ></div>
 
-                    {/* Navigation Buttons - Always visible and enhanced */}
-                    
+                    {/* 2. Imagem da Frente (Inteira, sem cortes) */}
+                    <img
+                        src={GALLERY_IMAGES[activeIndex].url}
+                        alt={GALLERY_IMAGES[activeIndex].title || `Imagem da galeria ${activeIndex + 1}`}
+                        className="relative w-full h-full object-contain z-10 transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+
+                    {/* Degradê sutil na parte inferior */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-20 pointer-events-none"></div>
                 </div>
 
                 {/* Thumbnails Strip */}
@@ -70,7 +74,7 @@ const GalleryCarousel: React.FC = () => {
                                     : 'opacity-70 hover:opacity-100 hover:scale-105 grayscale hover:grayscale-0'
                                 }`}
                             >
-                                <img src={img.url} alt="" className="w-full h-full object-cover" />
+                                <img src={img.url} alt="" className="w-full h-full object-contain" />
                             </button>
                         ))}
                     </div>
