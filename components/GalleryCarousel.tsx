@@ -51,20 +51,7 @@ const GalleryCarousel: React.FC = () => {
                     </div>
 
                     {/* Navigation Buttons - Always visible and enhanced */}
-                    <button 
-                        onClick={prevSlide}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary p-3 rounded-full shadow-lg transition-all hover:scale-110 z-20"
-                        aria-label="Imagem anterior"
-                    >
-                        <span className="material-symbols-outlined text-3xl font-bold">chevron_left</span>
-                    </button>
-                    <button 
-                        onClick={nextSlide}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary p-3 rounded-full shadow-lg transition-all hover:scale-110 z-20"
-                        aria-label="Próxima imagem"
-                    >
-                        <span className="material-symbols-outlined text-3xl font-bold">chevron_right</span>
-                    </button>
+                    
                 </div>
 
                 {/* Thumbnails Strip */}

@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
                             Um oásis de paz e conexão
                         </h1>
                         <p className="text-gray-100 text-lg md:text-xl font-medium leading-relaxed">
-                            Experiência sensorial com atendimento terapêutico personalizado, aromas, calor e toque que cuidam do seu corpo e das suas emoções.
+                            Experiência sensorial com atendimento terapêutico personalizado, aromas, amor e toques que cuidam do seu corpo e das suas emoções.
                         </p>
                         <div className="flex flex-col sm:flex-row sm:items-center gap-3 mt-2">
                             <a href="#pacotes" className="inline-flex items-center justify-center gap-2 bg-white text-primary px-7 py-3 rounded-full font-extrabold text-base shadow-card hover:bg-neutral-200 transition-all hover:translate-y-[-1px]">
