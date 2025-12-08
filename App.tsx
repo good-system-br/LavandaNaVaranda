@@ -46,7 +46,7 @@ const App: React.FC = () => {
             <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 to-transparent rounded-xl blur-2xl"></div>
                 {/* Imagem Local Original */}
-                <img src="/assets/IMG-20251203-WA0032.jpg" alt="Massagem Craniana" className="relative rounded-2xl shadow-[0_20px_60px_-30px_rgba(29,10,61,0.45)] w-full object-cover h-[420px]" />
+                <img src="/assets/IMG-20251203-WA0032.jpg" alt="Massagem Craniana" className="relative rounded-2xl shadow-[0_20px_60px_-30px_rgba(29,10,61,0.45)] w-full object-cover h-[420px] bg-neutral-100" />
                 <div className="absolute -bottom-6 -left-6 bg-white/95 p-6 rounded-2xl shadow-card max-w-xs hidden md:block transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-default border border-white/50">
                     <div className="flex items-center gap-3 mb-2">
                         <div className="p-2 bg-primary/10 rounded-full text-primary">
@@ -63,9 +63,9 @@ const App: React.FC = () => {
       {/* Promo Section */}
       <section className="bg-neutral-100 py-32 px-6">
         <div className="max-w-5xl mx-auto bg-white/90 rounded-2xl shadow-card overflow-hidden md:flex">
-            <div className="md:w-1/2 h-64 md:h-auto relative">
+            <div className="md:w-1/2 h-64 md:h-auto relative bg-neutral-100 flex items-center justify-center">
                 {/* Imagem Local Original */}
-                <img src="/assets/IMG-20251203-WA0034.jpg" alt="Pedras Quentes" className="absolute inset-0 w-full h-full object-cover" />
+                <img src="/assets/IMG-20251203-WA0034.jpg" alt="Pedras Quentes" className="w-full h-full object-contain" />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/35 to-transparent"></div>
             </div>
             <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center gap-6">
