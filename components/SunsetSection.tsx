@@ -7,7 +7,7 @@ const SunsetSection: React.FC = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % SUNSET_IMAGES.length);
-        }, 4000);
+        }, 3000);
         return () => clearInterval(timer);
     }, []);
 
