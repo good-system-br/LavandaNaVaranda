@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lavandas na Varanda | Spa & Terapias</title>
+    <meta name="description" content="Massagens terapêuticas e relaxantes em Monte Verde." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#9c30e8",
+              "primary-dark": "#7a22b8",
+              secondary: "#f2e8ff",
+              "secondary-strong": "#e7d5ff",
+              accent: "#4b8a3c",
+              "neutral-100": "#f8f7fb",
+              "neutral-200": "#f0eef5",
+              "neutral-800": "#1a1121",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            boxShadow: {
+              lift: "0 15px 50px -20px rgba(34, 0, 68, 0.25)",
+              card: "0 18px 40px -24px rgba(29, 10, 61, 0.25)",
+            },
+            borderRadius: { DEFAULT: "1.2rem", lg: "1.6rem", xl: "2.2rem" },
+          },
+        },
+      };
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { background: linear-gradient(180deg, #fdfbff 0%, #f7f4ff 40%, #ffffff 100%); }
+        /* Hide scrollbar for gallery strip */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="text-slate-800 antialiased selection:bg-primary selection:text-white">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+
+PARA ADICIONAR SUAS FOTOS:
+
+1. Coloque todas as suas fotos originais (.jpg, .png) dentro desta pasta (public/assets).
+2. Certifique-se de que os nomes dos arquivos correspondam aos que estão no arquivo 'src/constants.ts'.
+
+Exemplo:
+Se você tiver uma foto chamada "IMG-20251203-WA0029.jpg", coloque-a aqui nesta pasta.
+O site irá acessá-la automaticamente através do caminho "/assets/IMG-20251203-WA0029.jpg".
