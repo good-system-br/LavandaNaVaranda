@@ -10,9 +10,10 @@ export const CONTACT_INFO = {
 // Certifique-se de que os arquivos abaixo estejam na pasta 'public/assets'
 
 export const HERO_IMAGES = [
-    "/assets/IMG-20251203-WA0029.jpg",
-    "/assets/IMG-20251203-WA0032.jpg",
-    "/assets/IMG-20251203-WA0028.jpg"
+    "/assets/img18.jpg",
+    "/assets/IMG-20251203-WA0036.jpg",
+    "/assets/IMG-20251203-WA0037.jpg",
+    "/assets/IMG-20251203-WA0068.jpg"
 ];
 
 export const SUNSET_IMAGES = [

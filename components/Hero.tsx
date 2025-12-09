@@ -12,34 +12,38 @@ const Hero: React.FC = () => {
     }, []);
 
     return (
-        <div id="inicio" className="relative w-full h-[78vh] md:h-[86vh] overflow-hidden bg-gray-900 flex items-center justify-center">
-            {/* Background blur effect */}
-            <div
-                className="absolute inset-0 w-full h-full blur-2xl scale-110 opacity-30"
-                style={{ 
-                    backgroundImage: `url('${HERO_IMAGES[currentSlide]}')`
-                }}
-            />
-            
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/40"></div>
-            
-            {/* Main images with object-cover */}
+        <div id="inicio" className="relative w-full h-[78vh] md:h-[86vh] overflow-hidden flex items-center justify-center">
+            {/* Fundo desfocado - mesma imagem com object-cover e blur */}
             {HERO_IMAGES.map((img, index) => (
                 <div
-                    key={index}
-                    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                    key={`bg-${index}`}
+                    className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                    style={{
+                        backgroundImage: `url('${img}')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        filter: 'blur(40px) brightness(0.7)',
+                        transform: 'scale(1.1)'
+                    }}
+                />
+            ))}
+            
+            {/* Imagem principal com object-contain */}
+            {HERO_IMAGES.map((img, index) => (
+                <div
+                    key={`main-${index}`}
+                    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'} z-10`}
                 >
                     <img
                         src={img}
                         alt={`Slide ${index + 1}`}
-                        className="w-full h-full object-cover z-0"
+                        className="w-full h-full object-contain"
                     />
                 </div>
             ))}
             
-            <div className="absolute inset-0 flex items-center">
-                <div className="w-full max-w-6xl mx-auto px-6 md:px-10 lg:px-14 z-10">
+            <div className="absolute inset-0 flex items-end md:items-center z-20 pb-20 md:pb-0">
+                <div className="w-full max-w-6xl mx-auto px-6 md:px-10 lg:px-14">
                     <div className="max-w-3xl flex flex-col gap-6 bg-black/30 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-[0_25px_80px_-40px_rgba(0,0,0,0.65)]">
                         <div className="flex items-center gap-3 text-white/80 text-sm font-semibold uppercase tracking-[0.18em]">
                             <span className="w-2 h-2 rounded-full bg-primary"></span>

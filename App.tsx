@@ -191,7 +191,7 @@ const App: React.FC = () => {
                     Abrir no Google Maps
                   </a>
                   <a 
-                    href="https://waze.com/ul?place=ChIJIQBpAG2C4JQRfSnqrH_EmLI&ll=-22.31&lngLon=-45.45" 
+                    href="https://waze.com/ul?address=Rua%20Beija-flor%2C%20161%20-%20Centro%2C%20Monte%20Verde%2FMG&navigate=yes" 
                     target="_blank" 
                     rel="noreferrer" 
                     className="inline-flex items-center justify-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all hover:-translate-y-1"
@@ -223,7 +223,7 @@ const App: React.FC = () => {
               src="/assets/localizacao.mp4" 
               className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300"
               controls
-              preload="metadata"
+              preload="auto"
               playsInline
               controlsList="nodownload"
               style={{ display: 'block' }}
@@ -234,7 +234,7 @@ const App: React.FC = () => {
       </section>
 
       {/* Footer Enhanced */}
-      <footer className="bg-white border-t border-neutral-200 pt-20 pb-10 px-6">
+      <footer id="contato" className="bg-white border-t border-neutral-200 pt-20 pb-10 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 mb-12">
             
             {/* Brand Column */}
@@ -261,6 +261,16 @@ const App: React.FC = () => {
                         <a href="https://maps.google.com/?q=Rua+Beija-flor,+161+-+Centro,+Monte+Verde/MG" target="_blank" rel="noreferrer" className="text-xs font-bold text-primary hover:underline flex items-center gap-1">
                             Ver no Google Maps <span className="material-symbols-outlined text-[14px]">open_in_new</span>
                         </a>
+                    </div>
+                </div>
+
+                <div className="flex items-center gap-4 group cursor-pointer">
+                    <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} target="_blank" rel="noreferrer" className="bg-primary/10 p-2 rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span className="material-symbols-outlined text-xl">phone</span>
+                    </a>
+                    <div>
+                        <span className="text-xs text-gray-400 uppercase tracking-wider font-bold">WhatsApp</span>
+                        <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} target="_blank" rel="noreferrer" className="text-gray-600 hover:text-primary font-medium transition-colors block hover:underline">{CONTACT_INFO.whatsappDisplay}</a>
                     </div>
                 </div>
 

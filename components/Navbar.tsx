@@ -15,6 +15,8 @@ const Navbar: React.FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
         { label: 'Massagens', href: '#menu-massagens' },
         { label: 'Galeria', href: '#galeria' },
         { label: 'Depoimentos', href: '#depoimentos' },
+        { label: 'Contato', href: '#contato' },
+        { label: 'Localização', href: '#localizacao' },
     ];
 
     return (
