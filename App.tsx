@@ -208,9 +208,9 @@ const App: React.FC = () => {
                   <p className="text-2xl font-black text-primary">5 min</p>
                   <p className="text-xs text-gray-500 mt-1">do Centro</p>
                 </div>
-                <div className="bg-gradient-to-br from-primary/10 to-transparent p-6 rounded-2xl border border-primary/20 hover:shadow-lg hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 cursor-default">
-                  <p className="text-sm text-gray-600 uppercase tracking-wider font-bold mb-2">Estacionamento</p>
-                  <p className="text-xl font-black text-primary">Privativo</p>
+                <div className="bg-gradient-to-br from-primary/10 to-transparent p-5 rounded-2xl border border-primary/20 hover:shadow-lg hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 cursor-default">
+                  <p className="text-xs text-gray-600 uppercase tracking-wider font-bold mb-2 leading-tight">Estacionamento</p>
+                  <p className="text-lg font-black text-primary leading-tight">Privativo</p>
                   <p className="text-xs text-gray-500 mt-1">Gratuito</p>
                 </div>
               </div>
@@ -218,13 +218,15 @@ const App: React.FC = () => {
           </div>
 
           {/* Video Content */}
-          <div className="order-first md:order-last relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50 hover:shadow-2xl transition-all duration-300 hover:border-primary/40 group">
+          <div className="order-first md:order-last relative w-full h-[300px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50 hover:shadow-2xl transition-all duration-300 hover:border-primary/40 group">
             <video 
               src="/assets/localizacao.mp4" 
               className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300"
               controls
+              preload="metadata"
               playsInline
               controlsList="nodownload"
+              style={{ display: 'block' }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none group-hover:from-black/10 transition-all duration-300"></div>
           </div>
