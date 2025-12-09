@@ -32,8 +32,7 @@ const SunsetSection: React.FC = () => {
                         Nossa sala envidraçada oferece uma vista privilegiada para o espetáculo da natureza em Monte Verde.
                     </p>
                     <p className="text-gray-700 text-lg leading-relaxed">
-                        A <strong className="text-orange-600">Sinergia Crepúsculo</strong>, preparada com óleos essenciais de Laranja Doce e Lavanda, 
-                        harmoniza suas emoções enquanto o dia se despede, trazendo uma paz profunda para sua noite.
+                        A <strong className="text-orange-600">Sinergia Crepúsculo</strong>, preparada com óleos essenciais de Laranja Doce, Lavanda e outros óleos que harmonizam suas emoções enquanto o dia se despede, trazendo uma paz profunda para sua noite e intensificando a alegria e a energia.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-4">

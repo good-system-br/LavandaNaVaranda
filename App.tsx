@@ -162,6 +162,75 @@ const App: React.FC = () => {
       {/* Testimonials Carousel */}
       <TestimonialCarousel />
 
+      {/* Location Section */}
+      <section id="localizacao" className="py-32 px-6 md:px-10 lg:px-14 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-18 items-center">
+          {/* Text Content */}
+          <div className="space-y-8">
+            <div>
+              <span className="inline-flex items-center gap-2 px-3 py-1 bg-secondary-strong text-primary font-bold rounded-full text-[11px] uppercase tracking-[0.22em] mb-4">
+                <span className="material-symbols-outlined text-sm">location_on</span>
+                Como Chegar
+              </span>
+              <h2 className={`text-4xl md:text-5xl font-black leading-tight ${elegantTitleClass}`}>
+                Localização
+              </h2>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-neutral-200/70 shadow-sm hover:shadow-md transition-all">
+                <p className="text-gray-700 text-lg font-semibold mb-4">{CONTACT_INFO.address}</p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a 
+                    href="https://maps.google.com/?q=Rua+Beija-flor,+161+-+Centro,+Monte+Verde/MG" 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all hover:-translate-y-1"
+                  >
+                    <span className="material-symbols-outlined">map</span>
+                    Abrir no Google Maps
+                  </a>
+                  <a 
+                    href="https://waze.com/ul?place=ChIJIQBpAG2C4JQRfSnqrH_EmLI&ll=-22.31&lngLon=-45.45" 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="inline-flex items-center justify-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all hover:-translate-y-1"
+                  >
+                    <span className="material-symbols-outlined">near_me</span>
+                    Abrir no Waze
+                  </a>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gradient-to-br from-primary/10 to-transparent p-6 rounded-2xl border border-primary/20 hover:shadow-lg hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 cursor-default">
+                  <p className="text-sm text-gray-600 uppercase tracking-wider font-bold mb-2">Distância</p>
+                  <p className="text-2xl font-black text-primary">5 min</p>
+                  <p className="text-xs text-gray-500 mt-1">do Centro</p>
+                </div>
+                <div className="bg-gradient-to-br from-primary/10 to-transparent p-6 rounded-2xl border border-primary/20 hover:shadow-lg hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 cursor-default">
+                  <p className="text-sm text-gray-600 uppercase tracking-wider font-bold mb-2">Estacionamento</p>
+                  <p className="text-xl font-black text-primary">Privativo</p>
+                  <p className="text-xs text-gray-500 mt-1">Gratuito</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Video Content */}
+          <div className="order-first md:order-last relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50 hover:shadow-2xl transition-all duration-300 hover:border-primary/40 group">
+            <video 
+              src="/assets/localizacao.mp4" 
+              className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300"
+              controls
+              playsInline
+              controlsList="nodownload"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none group-hover:from-black/10 transition-all duration-300"></div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer Enhanced */}
       <footer className="bg-white border-t border-neutral-200 pt-20 pb-10 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 mb-12">
